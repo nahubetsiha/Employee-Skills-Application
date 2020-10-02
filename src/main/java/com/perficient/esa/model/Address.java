@@ -1,8 +1,11 @@
 package com.perficient.esa.model;
 
 import lombok.Data;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.Pattern;
 
@@ -10,13 +13,18 @@ import javax.validation.constraints.Pattern;
 @Data
 public class Address {
     @Id
-    private Long id;
+    @GeneratedValue(generator = "uuid")
+    @GenericGenerator(
+            name = "uuid",
+            strategy = "uuid"
+    )
+    private String id;
     private String street;
     private String suite;
     private String city;
     private String region;
-    @Pattern(regexp = "\\D{2,3}")
+//    @Pattern(regexp = "\\D{2,3}")
     private String postal;
-    @Pattern(regexp = "\\D{2}")
+//    @Pattern(regexp = "\\D{2}")
     private String country;
 }

@@ -1,0 +1,51 @@
+<div>
+  <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#exampleModalCenter"><a
+    [routerLink]="['/addEmployee']">Add New Employee</a></button>
+  <table class="table table-hover">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">First Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Address</th>
+      <th scope="col">Email</th>
+      <th scope="col">Company Email</th>
+      <th scope="col">Birth Date</th>
+      <th scope="col">Hire Date</th>
+      <th scope="col">Role</th>
+      <th scope="col">Business Unit</th>
+      <th scope="col">Skills</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngIf="employeeLength == 0">No Employee data available</tr>
+    <tr class="table-dark" *ngFor="let employee of allEmployees; let i = index">
+      <th scope="row">{{i + 1}}</th>
+      <td>{{employee.firstName}}</td>
+      <td>{{employee.lastName}}</td>
+      <td>{{employee.address.city}}, {{employee.address.country}}</td>
+      <td>{{employee.email}}</td>
+      <td>{{employee.companyEmail}}</td>
+      <td>{{employee.birthDate}}</td>
+      <td>{{employee.hireDate}}</td>
+      <td>{{employee.role}}</td>
+      <td>{{employee.businessUnit}}</td>
+      <td>
+        <a class="btn btn-primary" (click)="navigateToSkills(employee.id)"> View Skills
+        </a>
+      </td>
+<!--      <td *ngFor="let skill of employee.skills; let i = index">{{skill.field.name}}, {{skill.experience}} years, {{skill.summary}}</td>-->
+      <td>
+        <a class="btn btn-primary" (click)="editEmployee(employee.id)"> Edit
+        </a>
+      </td>
+      <td>
+        <a class="btn btn-danger" (click)="deleteEmployee(employee.id)"> Delete
+        </a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

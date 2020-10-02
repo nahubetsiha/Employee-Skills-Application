@@ -1,0 +1,105 @@
+<div class="container">
+  <form [formGroup]="employeeForm" (ngSubmit)="editEmployee()" class="needs-validation" novalidate>
+    <div formGroupName="employee">
+
+      <div class="form-group">
+        <label for="FirstName">First Name</label>
+        <input type="text" class="form-control" formControlName="firstName" id="FirstName" required>
+      </div>
+      <div class="form-group">
+        <label for="LastName">Last Name</label>
+        <input type="text" class="form-control" formControlName="lastName" id="LastName" required>
+      </div>
+      <div formGroupName="address">
+        <div class="form-group">
+          <label for="street">Street Address</label>
+          <input type="text" class="form-control" formControlName="street" id="street">
+        </div>
+        <div class="form-group">
+          <label for="suite">Suite</label>
+          <input type="text" class="form-control" formControlName="suite" id="suite">
+        </div>
+        <div class="form-group">
+          <label for="city">City</label>
+          <input type="text" class="form-control" formControlName="city" id="city">
+        </div>
+        <div class="form-group">
+          <label for="region">Region</label>
+          <input type="text" class="form-control" formControlName="region" id="region">
+        </div>
+        <div class="form-group">
+          <label for="postal">Postal</label>
+          <input type="text" class="form-control" formControlName="postal" id="postal">
+        </div>
+        <div class="form-group">
+          <label for="country">Country</label>
+          <input type="text" class="form-control" formControlName="country" id="country">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="text" class="form-control" formControlName="email" id="email">
+      </div>
+      <div class="form-group">
+        <label for="companyEmail">Company Email</label>
+        <input type="text" class="form-control" formControlName="companyEmail" id="companyEmail">
+      </div>
+      <div class="form-group">
+        <label for="birthDate">BirthDate</label>
+        <input type="text" class="form-control" formControlName="birthDate" id="birthDate">
+      </div>
+      <div class="form-group">
+        <label for="hireDate">Hire Date</label>
+        <input type="text" class="form-control" formControlName="hireDate" id="hireDate">
+      </div>
+      <div class="form-group">
+        <label for="role">Role</label>
+        <select class="form-control" formControlName="role" id="role">
+          <option value="0">TECHNICAL_CONSULTANT</option>
+          <option value="1">PROJECT_MANAGER</option>
+          <option value="2">DIRECTOR</option>
+          <option value="3">CHIEF</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="businessUnit">Business Unit</label>
+        <select class="form-control" formControlName="businessUnit" id="businessUnit">
+          <option value="0">DIGITAL_EXPERIENCE_GROUP</option>
+          <option value="1">ADOBE</option>
+          <option value="2">IBM_NBU</option>
+          <option value="3">API_MANAGEMENT</option>
+        </select>
+      </div>
+      <div formArrayName="skills">
+        <div formGroupName="0">
+          <div formGroupName="field">
+            <div class="form-group">
+              <label for="fieldName">Field Name</label>
+              <input type="text" class="form-control" formControlName="name" id="fieldName">
+            </div>
+            <div class="form-group">
+              <label for="fieldType">Field Type</label>
+              <input type="text" class="form-control" formControlName="type" id="fieldType">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="experience">Experience</label>
+            <input type="number" class="form-control" formControlName="experience" id="experience">
+          </div>
+          <div class="form-group">
+            <label for="summary">Summary</label>
+            <input type="text" class="form-control" formControlName="summary" id="summary">
+          </div>
+        </div>
+
+      </div>
+
+
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+  </form>
+</div>

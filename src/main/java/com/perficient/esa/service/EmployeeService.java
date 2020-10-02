@@ -10,7 +10,8 @@ import java.util.List;
 public interface EmployeeService {
     List<Employee> getAllEmployees();
     Employee addEmployee(Employee employee);
-    Employee getEmployeeById(Long id);
-    Employee updateEmployee(Employee editEmployee, Long id);
-    void deleteEmployee(Long id);
+    Employee getEmployeeById(String id);
+    Employee updateEmployee(Employee editEmployee, String id);
+    void deleteEmployee(String id);
+    public Employee findByFirstAndLastName(String firstName,String lastName);
 }

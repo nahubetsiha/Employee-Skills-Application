@@ -1,6 +1,7 @@
 package com.perficient.esa.model;
 
 import lombok.Data;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
@@ -11,21 +12,25 @@ import java.util.List;
 @Data
 public class Employee {
     @Id
-    private Long id;
+    @GeneratedValue(generator = "uuid")
+    @GenericGenerator(
+            name = "uuid",
+            strategy = "uuid"
+    )
+    private String id;
     private String firstName;
     private String lastName;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private Address address;
     @Email
     private String email;
     @Email
     private String companyEmail;
-    private LocalDate birthDate;
-    private LocalDate hireDate;
-    @Column(columnDefinition = "enum default TECHNICAL_CONSULTANT")
+    private String birthDate;
+    private String hireDate;
     private Role role;
     private BusinessUnit businessUnit;
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     private List<Skill> skills;
 
 }

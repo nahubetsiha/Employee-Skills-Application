@@ -1,0 +1,40 @@
+<div>
+  <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#exampleModalCenter"><a
+    (click)="addSkill()">Add New Skill</a></button>
+  <table class="table table-hover">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Field Name</th>
+      <th scope="col">Field Type</th>
+      <th scope="col">Years Of Experience</th>
+      <th scope="col">Summary</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngIf="allSkills == null || skillLength == 0">No Skill data available</tr>
+    <tr class="table-dark" *ngFor="let skill of allSkills; let i = index">
+      <th scope="row">{{i + 1}}</th>
+      <td>{{skill.field.name}}</td>
+      <td>{{skill.field.type}}</td>
+      <td>{{skill.experience}}</td>
+      <td>{{skill.summary}}</td>
+<!--      <td>-->
+<!--        <a class="btn btn-primary" (click)="navigateToSkills(employee.id)"> View Skills-->
+<!--        </a>-->
+<!--      </td>-->
+      <!--      <td *ngFor="let skill of employee.skills; let i = index">{{skill.field.name}}, {{skill.experience}} years, {{skill.summary}}</td>-->
+      <td>
+        <a class="btn btn-primary" (click)="editSkill(skill.id)"> Edit
+        </a>
+      </td>
+      <td>
+        <a class="btn btn-danger" (click)="deleteSkill(skill.id)"> Delete
+        </a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,3 @@
+export enum BusinessUnit {
+  DIGITAL_EXPERIENCE_GROUP, ADOBE, IBM_NBU, API_MANAGEMENT
+}
